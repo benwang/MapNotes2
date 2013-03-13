@@ -9,6 +9,7 @@
 #import "BMWMasterViewController.h"
 
 #import "BMWDetailViewController.h"
+#import "BMWCoreLocationandMapKit.h"
 
 @interface BMWMasterViewController () {
     NSMutableArray *_objects;
@@ -35,6 +36,9 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (BMWDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    
+    BMWCoreLocationandMapKit *sharedManager = [BMWCoreLocationandMapKit sharedManager];
+    [sharedManager resumeUpdating];
 }
 
 - (void)didReceiveMemoryWarning
@@ -69,8 +73,13 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
+//    NSDate *object = _objects[indexPath.row];
+//    cell.textLabel.text = [object description];
+    //Why won't this work?
+    if (_detailViewController) {
+        cell.textLabel.text = _detailViewController.detailTitle.text;
+    }
+    cell.textLabel.text = @"New Note";
     return cell;
 }
 

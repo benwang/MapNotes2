@@ -25,6 +25,9 @@
 		2581F48316F0D3B700C5B391 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2581F45816F0D3B700C5B391 /* Foundation.framework */; };
 		2581F48B16F0D3B700C5B391 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2581F48916F0D3B700C5B391 /* InfoPlist.strings */; };
 		2581F48E16F0D3B700C5B391 /* MapNotes2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2581F48D16F0D3B700C5B391 /* MapNotes2Tests.m */; };
+		2581F49916F0D3F700C5B391 /* BMWCoreLocationandMapKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2581F49816F0D3F700C5B391 /* BMWCoreLocationandMapKit.m */; };
+		2581F49B16F0D42800C5B391 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2581F49A16F0D42800C5B391 /* MapKit.framework */; };
+		2581F49D16F0D43000C5B391 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2581F49C16F0D43000C5B391 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,10 @@
 		2581F48A16F0D3B700C5B391 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2581F48C16F0D3B700C5B391 /* MapNotes2Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapNotes2Tests.h; sourceTree = "<group>"; };
 		2581F48D16F0D3B700C5B391 /* MapNotes2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapNotes2Tests.m; sourceTree = "<group>"; };
+		2581F49716F0D3F700C5B391 /* BMWCoreLocationandMapKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMWCoreLocationandMapKit.h; sourceTree = "<group>"; };
+		2581F49816F0D3F700C5B391 /* BMWCoreLocationandMapKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMWCoreLocationandMapKit.m; sourceTree = "<group>"; };
+		2581F49A16F0D42800C5B391 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2581F49C16F0D43000C5B391 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +77,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2581F49D16F0D43000C5B391 /* CoreLocation.framework in Frameworks */,
+				2581F49B16F0D42800C5B391 /* MapKit.framework in Frameworks */,
 				2581F45716F0D3B700C5B391 /* UIKit.framework in Frameworks */,
 				2581F45916F0D3B700C5B391 /* Foundation.framework in Frameworks */,
 				2581F45B16F0D3B700C5B391 /* CoreGraphics.framework in Frameworks */,
@@ -111,6 +120,8 @@
 		2581F45516F0D3B700C5B391 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2581F49C16F0D43000C5B391 /* CoreLocation.framework */,
+				2581F49A16F0D42800C5B391 /* MapKit.framework */,
 				2581F45616F0D3B700C5B391 /* UIKit.framework */,
 				2581F45816F0D3B700C5B391 /* Foundation.framework */,
 				2581F45A16F0D3B700C5B391 /* CoreGraphics.framework */,
@@ -124,6 +135,8 @@
 			children = (
 				2581F46516F0D3B700C5B391 /* BMWAppDelegate.h */,
 				2581F46616F0D3B700C5B391 /* BMWAppDelegate.m */,
+				2581F49716F0D3F700C5B391 /* BMWCoreLocationandMapKit.h */,
+				2581F49816F0D3F700C5B391 /* BMWCoreLocationandMapKit.m */,
 				2581F46E16F0D3B700C5B391 /* MainStoryboard_iPhone.storyboard */,
 				2581F47116F0D3B700C5B391 /* MainStoryboard_iPad.storyboard */,
 				2581F47416F0D3B700C5B391 /* BMWMasterViewController.h */,
@@ -284,6 +297,7 @@
 				2581F46716F0D3B700C5B391 /* BMWAppDelegate.m in Sources */,
 				2581F47616F0D3B700C5B391 /* BMWMasterViewController.m in Sources */,
 				2581F47916F0D3B700C5B391 /* BMWDetailViewController.m in Sources */,
+				2581F49916F0D3F700C5B391 /* BMWCoreLocationandMapKit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
