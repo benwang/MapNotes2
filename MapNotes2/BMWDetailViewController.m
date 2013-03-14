@@ -37,11 +37,11 @@
 - (void)configureView
 {
     // Update the user interface for the detail item.
-
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
-        
-    }
+    self.detailDescriptionLabel.text = [_detailItem.currentDate description];
+    self.detailTitle.text = _detailItem.titleString;
+    self.detailContent.text = _detailItem.detailString;
+    self.detailMap.mapType = MKMapTypeSatellite;
+    [self addPinToMapAtCoordinate:_detailItem.coordinate];
 }
 
 - (void)viewDidLoad
@@ -50,9 +50,14 @@
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
     
-    _detailMap.mapType = MKMapTypeSatellite;
-    BMWCoreLocationandMapKit *sharedManager = [BMWCoreLocationandMapKit sharedManager];
-    [self addPinToMapAtLocation:[sharedManager.locationManager location]];
+    self.detailDescriptionLabel.text = [_detailItem.currentDate description];
+    self.detailTitle.text = _detailItem.titleString;
+    self.detailContent.text = _detailItem.detailString;
+    self.detailMap.mapType = MKMapTypeSatellite;
+    [self addPinToMapAtCoordinate:_detailItem.coordinate];
+    
+    
+//    [self addPinToMapAtLocation:creationLocation];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,16 +67,16 @@
 }
 
 #pragma mark - Map commands
-- (void) addPinToMapAtLocation:(CLLocation *) location
+- (void) addPinToMapAtCoordinate:(CLLocationCoordinate2D) coordinate
 {
     //this is the red pin
     MKPointAnnotation *pin = [[MKPointAnnotation alloc] init];
-    pin.coordinate = location.coordinate;
+    pin.coordinate = coordinate;
     
     //Labels, with latitude/longitude markings to two decimal places
     pin.title = @"Game watched here";
-    float lat = location.coordinate.latitude;
-    float lon = location.coordinate.longitude;
+    float lat = coordinate.latitude;
+    float lon = coordinate.longitude;
     pin.subtitle = [NSString stringWithFormat: @"lat: ~%f, lon: ~%f", lat, lon];
     
     //Add pin to map, puts center of screen at the pin
@@ -80,11 +85,11 @@
     MKCoordinateSpan span;
     span.latitudeDelta = 0.01;
     span.longitudeDelta = 0.01;
-    CLLocationCoordinate2D newCenter;
-    newCenter.latitude = location.coordinate.latitude;
-    newCenter.longitude = location.coordinate.longitude;
+//    CLLocationCoordinate2D newCenter;
+//    newCenter.latitude = location.coordinate.latitude;
+//    newCenter.longitude = location.coordinate.longitude;
     region.span = span;
-    region.center = newCenter;
+    region.center = coordinate;//no longer newCenter
     [_detailMap setRegion:region animated:YES];
 }
 

@@ -11,5 +11,7 @@
 @interface BMWAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) NSMutableArray *objects;
+
 
 @end

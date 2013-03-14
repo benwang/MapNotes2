@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.navigationBarHidden = NO;
 	// Do any additional setup after loading the view.
 }
 
@@ -33,6 +34,27 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)cancelModalViewController:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)doneWithModalViewController:(id)sender
+{
+    //first save the data
+    appDelegate = (BMWAppDelegate *)[[UIApplication sharedApplication] delegate];
+    BMWNoteObject *object = [[BMWNoteObject alloc] init];
+    object.titleString = titleField.text;
+    object.detailString = contentField.text;
+    object.currentDate = [NSDate date];
+    BMWCoreLocationandMapKit *sharedManager = [BMWCoreLocationandMapKit sharedManager];
+    object.coordinate = sharedManager.locationManager.location.coordinate;
+    
+    //then set it as object in table array
+    [appDelegate.objects addObject:object];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

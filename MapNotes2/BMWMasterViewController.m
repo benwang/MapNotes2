@@ -13,6 +13,7 @@
 
 @interface BMWMasterViewController () {
     NSMutableArray *_objects;
+    BMWAppDelegate *appDelegate;
 }
 @end
 
@@ -41,6 +42,11 @@
     [sharedManager resumeUpdating];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -50,11 +56,15 @@
 - (void)insertNewObject:(id)sender
 {
     if (!_objects) {
-        _objects = [[NSMutableArray alloc] init];
+        appDelegate = (BMWAppDelegate *)[[UIApplication sharedApplication] delegate];
+        _objects = appDelegate.objects;
     }
-    [_objects insertObject:[NSDate date] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    [self performSegueWithIdentifier:@"AddNote" sender:self];
+    
+//    [_objects insertObject:[NSDate date] atIndex:0];
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - Table View
@@ -73,13 +83,13 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-//    NSDate *object = _objects[indexPath.row];
+    BMWNoteObject *objectAtCell = [appDelegate.objects objectAtIndex:indexPath.row];
 //    cell.textLabel.text = [object description];
     //Why won't this work?
-    if (_detailViewController) {
-        cell.textLabel.text = _detailViewController.detailTitle.text;
-    }
-    cell.textLabel.text = @"New Note";
+//    if (_detailViewController) {
+//        cell.textLabel.text = _detailViewController.detailTitle.text;
+//    }
+    cell.textLabel.text = objectAtCell.titleString;
     return cell;
 }
 

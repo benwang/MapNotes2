@@ -28,6 +28,8 @@
 		2581F49916F0D3F700C5B391 /* BMWCoreLocationandMapKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 2581F49816F0D3F700C5B391 /* BMWCoreLocationandMapKit.m */; };
 		2581F49B16F0D42800C5B391 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2581F49A16F0D42800C5B391 /* MapKit.framework */; };
 		2581F49D16F0D43000C5B391 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2581F49C16F0D43000C5B391 /* CoreLocation.framework */; };
+		2581F4A116F1227200C5B391 /* BMWAddNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2581F4A016F1227100C5B391 /* BMWAddNoteViewController.m */; };
+		2581F4A416F124BF00C5B391 /* BMWNoteObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2581F4A316F124BE00C5B391 /* BMWNoteObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,10 @@
 		2581F49816F0D3F700C5B391 /* BMWCoreLocationandMapKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMWCoreLocationandMapKit.m; sourceTree = "<group>"; };
 		2581F49A16F0D42800C5B391 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2581F49C16F0D43000C5B391 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2581F49F16F1227100C5B391 /* BMWAddNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMWAddNoteViewController.h; sourceTree = "<group>"; };
+		2581F4A016F1227100C5B391 /* BMWAddNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMWAddNoteViewController.m; sourceTree = "<group>"; };
+		2581F4A216F124BE00C5B391 /* BMWNoteObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMWNoteObject.h; sourceTree = "<group>"; };
+		2581F4A316F124BE00C5B391 /* BMWNoteObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMWNoteObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +147,10 @@
 				2581F47116F0D3B700C5B391 /* MainStoryboard_iPad.storyboard */,
 				2581F47416F0D3B700C5B391 /* BMWMasterViewController.h */,
 				2581F47516F0D3B700C5B391 /* BMWMasterViewController.m */,
+				2581F49F16F1227100C5B391 /* BMWAddNoteViewController.h */,
+				2581F4A016F1227100C5B391 /* BMWAddNoteViewController.m */,
+				2581F4A216F124BE00C5B391 /* BMWNoteObject.h */,
+				2581F4A316F124BE00C5B391 /* BMWNoteObject.m */,
 				2581F47716F0D3B700C5B391 /* BMWDetailViewController.h */,
 				2581F47816F0D3B700C5B391 /* BMWDetailViewController.m */,
 				2581F45D16F0D3B700C5B391 /* Supporting Files */,
@@ -298,6 +308,8 @@
 				2581F47616F0D3B700C5B391 /* BMWMasterViewController.m in Sources */,
 				2581F47916F0D3B700C5B391 /* BMWDetailViewController.m in Sources */,
 				2581F49916F0D3F700C5B391 /* BMWCoreLocationandMapKit.m in Sources */,
+				2581F4A116F1227200C5B391 /* BMWAddNoteViewController.m in Sources */,
+				2581F4A416F124BF00C5B391 /* BMWNoteObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

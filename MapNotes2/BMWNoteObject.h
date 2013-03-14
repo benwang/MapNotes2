@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface BMWNoteObject : NSObject
+
+@property (nonatomic, strong) NSDate *currentDate;
+@property (nonatomic, strong) NSString *titleString;
+@property (nonatomic, strong) NSString *detailString;
+@property CLLocationCoordinate2D coordinate;
 
 @end

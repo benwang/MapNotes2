@@ -7,7 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BMWNoteObject.h"
+#import "BMWAppDelegate.h"
+#import "BMWCoreLocationandMapKit.h"
 
 @interface BMWAddNoteViewController : UIViewController
+{
+    IBOutlet UITextField *titleField;
+    IBOutlet UITextView *contentField;
+    BMWAppDelegate *appDelegate;
+}
+
+@property (nonatomic, strong) BMWCoreLocationandMapKit *locationManager;
+
+- (IBAction)cancelModalViewController:(id)sender;
+- (IBAction)doneWithModalViewController:(id)sender;
 
 @end

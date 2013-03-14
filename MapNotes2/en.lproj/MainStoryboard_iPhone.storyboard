@@ -58,6 +58,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Game Log" id="36"/>
+                    <connections>
+                        <segue destination="C2G-Hs-ChF" kind="modal" identifier="AddNote" id="AWs-W0-Z0U"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
@@ -83,7 +86,7 @@
                                     <constraint firstAttribute="height" constant="208" id="gUm-9X-tbr"/>
                                 </constraints>
                             </mapView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Teams: " translatesAutoresizingMaskIntoConstraints="NO" id="gwI-tv-fRH">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Teams: " translatesAutoresizingMaskIntoConstraints="NO" id="gwI-tv-fRH">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="153" id="aEv-VP-aNl"/>
@@ -125,26 +128,85 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="902" y="64"/>
+            <point key="canvasLocation" x="985" y="64"/>
+        </scene>
+        <!--Add Note View Controller-->
+        <scene sceneID="5q9-SE-cKj">
+            <objects>
+                <viewController id="C2G-Hs-ChF" customClass="BMWAddNoteViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wRh-hK-May">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qun-se-VER">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6LX-hS-jZA">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="190" id="iQj-o0-r8K"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Content" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94V-FF-Zjw">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6qh-A4-daE">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="6hy-60-etm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NAl-HX-hft">
+                                <items>
+                                    <navigationItem title="Add Note" id="t1w-5t-i1q">
+                                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="h5c-Xq-9B6">
+                                            <connections>
+                                                <action selector="cancelModalViewController:" destination="C2G-Hs-ChF" id="wDW-xa-xGI"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Y6Z-JO-bED">
+                                            <connections>
+                                                <action selector="doneWithModalViewController:" destination="C2G-Hs-ChF" id="zoJ-1i-gsX"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="94V-FF-Zjw" firstAttribute="top" secondItem="wRh-hK-May" secondAttribute="top" constant="165" id="07n-PP-NKo"/>
+                            <constraint firstItem="94V-FF-Zjw" firstAttribute="leading" secondItem="wRh-hK-May" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="5HB-vX-wB4"/>
+                            <constraint firstItem="NAl-HX-hft" firstAttribute="trailing" secondItem="wRh-hK-May" secondAttribute="trailing" type="default" id="6kr-UR-7VZ"/>
+                            <constraint firstItem="6qh-A4-daE" firstAttribute="top" secondItem="94V-FF-Zjw" secondAttribute="top" type="default" id="AoI-g4-aL9"/>
+                            <constraint firstItem="NAl-HX-hft" firstAttribute="top" secondItem="wRh-hK-May" secondAttribute="top" type="default" id="BWI-ha-aSv"/>
+                            <constraint firstItem="6LX-hS-jZA" firstAttribute="leading" secondItem="wRh-hK-May" secondAttribute="leading" constant="103" id="Ej5-Gn-LlP"/>
+                            <constraint firstItem="qun-se-VER" firstAttribute="trailing" secondItem="94V-FF-Zjw" secondAttribute="trailing" type="default" id="TE3-Up-Ees"/>
+                            <constraint firstItem="6LX-hS-jZA" firstAttribute="top" secondItem="wRh-hK-May" secondAttribute="top" constant="117" id="XNc-v8-PdL"/>
+                            <constraint firstItem="NAl-HX-hft" firstAttribute="leading" secondItem="wRh-hK-May" secondAttribute="leading" type="default" id="cVS-Fc-491"/>
+                            <constraint firstItem="6qh-A4-daE" firstAttribute="leading" secondItem="6LX-hS-jZA" secondAttribute="leading" type="default" id="dRf-yw-v1F"/>
+                            <constraint firstItem="qun-se-VER" firstAttribute="top" secondItem="wRh-hK-May" secondAttribute="top" constant="121" id="gfP-NH-Drq"/>
+                            <constraint firstItem="qun-se-VER" firstAttribute="leading" secondItem="wRh-hK-May" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="jVy-ma-fBs"/>
+                            <constraint firstItem="6LX-hS-jZA" firstAttribute="trailing" secondItem="6qh-A4-daE" secondAttribute="trailing" type="default" id="nOB-6z-ePo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contentField" destination="6qh-A4-daE" id="qeW-nS-4mi"/>
+                        <outlet property="titleField" destination="6LX-hS-jZA" id="mrn-kb-YZI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sfo-A2-CrI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="995" y="669"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="BMWDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMWDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="detailContent" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="detailMap" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="detailTitle" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="BMWMasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMWMasterViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
