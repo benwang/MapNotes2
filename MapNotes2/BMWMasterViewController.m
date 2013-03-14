@@ -38,8 +38,13 @@
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (BMWDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
+    //Start updating location
     BMWCoreLocationandMapKit *sharedManager = [BMWCoreLocationandMapKit sharedManager];
     [sharedManager resumeUpdating];
+    
+    //Nice UI
+    UIImage *patternImage = [UIImage imageNamed:@"fabric_of_squares_gray.png"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -128,7 +133,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        NSDate *object = _objects[indexPath.row];
+        BMWNoteObject *object = _objects[indexPath.row];
         self.detailViewController.detailItem = object;
     }
 }
@@ -137,7 +142,7 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = _objects[indexPath.row];
+        BMWNoteObject *object = _objects[indexPath.row];
         [[segue destinationViewController] setDetailItem:object];
     }
 }

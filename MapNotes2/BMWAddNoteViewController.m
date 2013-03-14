@@ -27,7 +27,10 @@
 {
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = NO;
+    
 	// Do any additional setup after loading the view.
+    UIImage *patternImage = [UIImage imageNamed:@"fabric_of_squares_gray.png"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
 }
 
 - (void)didReceiveMemoryWarning

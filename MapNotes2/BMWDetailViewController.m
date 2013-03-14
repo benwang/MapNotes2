@@ -9,12 +9,15 @@
 #import "BMWDetailViewController.h"
 #import "BMWCoreLocationandMapKit.h"
 
-@interface BMWDetailViewController () {
-    CLLocation *creationLocation;
-}
+@interface BMWDetailViewController ()
+
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
+
 - (void)configureView;
+
 @end
+
+
 
 @implementation BMWDetailViewController
 
@@ -37,11 +40,13 @@
 - (void)configureView
 {
     // Update the user interface for the detail item.
-    self.detailDescriptionLabel.text = [_detailItem.currentDate description];
-    self.detailTitle.text = _detailItem.titleString;
-    self.detailContent.text = _detailItem.detailString;
-    self.detailMap.mapType = MKMapTypeSatellite;
-    [self addPinToMapAtCoordinate:_detailItem.coordinate];
+    
+//  I put this in viewDidLoad instead
+//    self.detailDescriptionLabel.text = [_detailItem.currentDate description];
+//    self.detailTitle.text = _detailItem.titleString;
+//    self.detailContent.text = _detailItem.detailString;
+//    self.detailMap.mapType = MKMapTypeStandard;
+//    [self addPinToMapAtCoordinate:_detailItem.coordinate];
 }
 
 - (void)viewDidLoad
@@ -50,14 +55,16 @@
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
     
+    // Getting object information from _detailItem, originially passed from AppDelegate
     self.detailDescriptionLabel.text = [_detailItem.currentDate description];
     self.detailTitle.text = _detailItem.titleString;
     self.detailContent.text = _detailItem.detailString;
-    self.detailMap.mapType = MKMapTypeSatellite;
+    self.detailMap.mapType = MKMapTypeStandard;
     [self addPinToMapAtCoordinate:_detailItem.coordinate];
     
-    
-//    [self addPinToMapAtLocation:creationLocation];
+    // Set background to pattern
+    UIImage *patternImage = [UIImage imageNamed:@"fabric_of_squares_gray.png"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
 }
 
 - (void)didReceiveMemoryWarning
