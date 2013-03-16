@@ -508,6 +508,7 @@
 				2581F49316F0D3B700C5B391 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2581F49416F0D3B700C5B391 /* Build configuration list for PBXNativeTarget "MapNotes2Tests" */ = {
 			isa = XCConfigurationList;
@@ -516,6 +517,7 @@
 				2581F49616F0D3B700C5B391 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
