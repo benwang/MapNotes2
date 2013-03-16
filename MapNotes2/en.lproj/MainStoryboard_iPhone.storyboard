@@ -90,8 +90,7 @@
                             </mapView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Content" translatesAutoresizingMaskIntoConstraints="NO" id="gwI-tv-fRH">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="W3z-hM-NYc"/>
-                                    <constraint firstAttribute="height" constant="153" id="aEv-VP-aNl"/>
+                                    <constraint firstAttribute="height" constant="144" id="NSK-3D-5Bs"/>
                                 </constraints>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="14"/>
@@ -99,8 +98,8 @@
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Title" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0WG-kF-Dmi">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="251" id="dql-Fr-Qao"/>
-                                    <constraint firstAttribute="height" constant="28" id="f75-PB-YBE"/>
+                                    <constraint firstAttribute="width" constant="252" id="gsd-Ce-W8m"/>
+                                    <constraint firstAttribute="height" constant="39" id="vri-6J-pqf"/>
                                 </constraints>
                                 <color key="textColor" red="0.0" green="0.49019610879999997" blue="0.54901963470000004" alpha="1" colorSpace="deviceRGB"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="22"/>
@@ -110,13 +109,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="z8a-Te-sFc" firstAttribute="bottom" secondItem="22" secondAttribute="bottom" type="default" id="1dR-Gx-Vke"/>
-                            <constraint firstItem="0WG-kF-Dmi" firstAttribute="centerX" secondItem="22" secondAttribute="centerX" type="default" id="3YW-Rx-Xkj"/>
                             <constraint firstItem="0WG-kF-Dmi" firstAttribute="top" secondItem="22" secondAttribute="top" constant="1" id="3c4-4Q-Msn"/>
-                            <constraint firstItem="gwI-tv-fRH" firstAttribute="top" secondItem="22" secondAttribute="top" constant="56" id="E0V-Po-5Rw"/>
+                            <constraint firstItem="gwI-tv-fRH" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="C6M-48-PnP"/>
                             <constraint firstItem="27" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="24" id="Kqk-p0-dcj"/>
-                            <constraint firstItem="gwI-tv-fRH" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="17" id="Vgk-K4-vpr"/>
+                            <constraint firstAttribute="trailing" secondItem="gwI-tv-fRH" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Vs4-Sr-72k"/>
+                            <constraint firstItem="gwI-tv-fRH" firstAttribute="centerX" secondItem="0WG-kF-Dmi" secondAttribute="centerX" type="default" id="gyJ-Xq-c35"/>
+                            <constraint firstItem="gwI-tv-fRH" firstAttribute="top" secondItem="22" secondAttribute="top" constant="63" id="lLK-XM-DeD"/>
                             <constraint firstItem="z8a-Te-sFc" firstAttribute="leading" secondItem="22" secondAttribute="leading" type="default" id="nOU-1r-oH9"/>
-                            <constraint firstItem="27" firstAttribute="top" secondItem="22" secondAttribute="top" constant="36" id="wfl-Vn-J5J"/>
+                            <constraint firstItem="27" firstAttribute="top" secondItem="22" secondAttribute="top" constant="42" id="tsA-a9-JyE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Game Details" id="26"/>

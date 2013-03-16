@@ -13,7 +13,7 @@
 @interface BMWDetailViewController : UIViewController <UISplitViewControllerDelegate>
 
 @property (strong, nonatomic) BMWNoteObject *detailItem;
-@property (weak, nonatomic) IBOutlet UITextView *detailTitle;
+@property (weak, nonatomic) IBOutlet UILabel *detailTitle;
 @property (weak, nonatomic) IBOutlet UITextView *detailContent;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @property (strong, nonatomic) IBOutlet MKMapView *detailMap;
