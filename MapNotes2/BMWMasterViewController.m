@@ -7,7 +7,6 @@
 //
 
 #import "BMWMasterViewController.h"
-
 #import "BMWDetailViewController.h"
 #import "BMWCoreLocationandMapKit.h"
 
