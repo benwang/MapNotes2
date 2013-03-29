@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		251ADAF2170373AC00C641B2 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 251ADAF0170373AC00C641B2 /* Model.xcdatamodeld */; };
+		251ADAFB1704E12300C641B2 /* BMWLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 251ADAFA1704E12300C641B2 /* BMWLocation.m */; };
+		251ADAFE1704E12B00C641B2 /* BMWNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 251ADAFD1704E12B00C641B2 /* BMWNote.m */; };
 		2581F45716F0D3B700C5B391 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2581F45616F0D3B700C5B391 /* UIKit.framework */; };
 		2581F45916F0D3B700C5B391 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2581F45816F0D3B700C5B391 /* Foundation.framework */; };
 		2581F45B16F0D3B700C5B391 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2581F45A16F0D3B700C5B391 /* CoreGraphics.framework */; };
@@ -32,6 +35,8 @@
 		2581F4A416F124BF00C5B391 /* BMWNoteObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2581F4A316F124BE00C5B391 /* BMWNoteObject.m */; };
 		2581F4A616F15ABE00C5B391 /* dark_fish_skin.png in Resources */ = {isa = PBXBuildFile; fileRef = 2581F4A516F15ABE00C5B391 /* dark_fish_skin.png */; };
 		2581F4A816F16EEC00C5B391 /* fabric_of_squares_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 2581F4A716F16EEB00C5B391 /* fabric_of_squares_gray.png */; };
+		25CC492716FEC98C00005F8A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25CC492616FEC98C00005F8A /* CoreData.framework */; };
+		25CC492A16FF8B4800005F8A /* BMWDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CC492916FF8B4800005F8A /* BMWDataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +50,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		251ADAF1170373AC00C641B2 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		251ADAF91704E12300C641B2 /* BMWLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMWLocation.h; path = ../BMWLocation.h; sourceTree = "<group>"; };
+		251ADAFA1704E12300C641B2 /* BMWLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMWLocation.m; path = ../BMWLocation.m; sourceTree = "<group>"; };
+		251ADAFC1704E12A00C641B2 /* BMWNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMWNote.h; path = ../BMWNote.h; sourceTree = "<group>"; };
+		251ADAFD1704E12B00C641B2 /* BMWNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMWNote.m; path = ../BMWNote.m; sourceTree = "<group>"; };
 		2581F45316F0D3B700C5B391 /* MapNotes2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapNotes2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2581F45616F0D3B700C5B391 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2581F45816F0D3B700C5B391 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -80,6 +90,9 @@
 		2581F4A316F124BE00C5B391 /* BMWNoteObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMWNoteObject.m; sourceTree = "<group>"; };
 		2581F4A516F15ABE00C5B391 /* dark_fish_skin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dark_fish_skin.png; sourceTree = "<group>"; };
 		2581F4A716F16EEB00C5B391 /* fabric_of_squares_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fabric_of_squares_gray.png; sourceTree = "<group>"; };
+		25CC492616FEC98C00005F8A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		25CC492816FF8B4800005F8A /* BMWDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMWDataManager.h; sourceTree = "<group>"; };
+		25CC492916FF8B4800005F8A /* BMWDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMWDataManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25CC492716FEC98C00005F8A /* CoreData.framework in Frameworks */,
 				2581F49D16F0D43000C5B391 /* CoreLocation.framework in Frameworks */,
 				2581F49B16F0D42800C5B391 /* MapKit.framework in Frameworks */,
 				2581F45716F0D3B700C5B391 /* UIKit.framework in Frameworks */,
@@ -130,6 +144,7 @@
 		2581F45516F0D3B700C5B391 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				25CC492616FEC98C00005F8A /* CoreData.framework */,
 				2581F49C16F0D43000C5B391 /* CoreLocation.framework */,
 				2581F49A16F0D42800C5B391 /* MapKit.framework */,
 				2581F45616F0D3B700C5B391 /* UIKit.framework */,
@@ -143,10 +158,15 @@
 		2581F45C16F0D3B700C5B391 /* MapNotes2 */ = {
 			isa = PBXGroup;
 			children = (
+				251ADAFC1704E12A00C641B2 /* BMWNote.h */,
+				251ADAFD1704E12B00C641B2 /* BMWNote.m */,
+				251ADAF91704E12300C641B2 /* BMWLocation.h */,
+				251ADAFA1704E12300C641B2 /* BMWLocation.m */,
 				2581F4A716F16EEB00C5B391 /* fabric_of_squares_gray.png */,
 				2581F4A516F15ABE00C5B391 /* dark_fish_skin.png */,
 				2581F46516F0D3B700C5B391 /* BMWAppDelegate.h */,
 				2581F46616F0D3B700C5B391 /* BMWAppDelegate.m */,
+				251ADAF0170373AC00C641B2 /* Model.xcdatamodeld */,
 				2581F49716F0D3F700C5B391 /* BMWCoreLocationandMapKit.h */,
 				2581F49816F0D3F700C5B391 /* BMWCoreLocationandMapKit.m */,
 				2581F46E16F0D3B700C5B391 /* MainStoryboard_iPhone.storyboard */,
@@ -159,6 +179,8 @@
 				2581F4A316F124BE00C5B391 /* BMWNoteObject.m */,
 				2581F47716F0D3B700C5B391 /* BMWDetailViewController.h */,
 				2581F47816F0D3B700C5B391 /* BMWDetailViewController.m */,
+				25CC492816FF8B4800005F8A /* BMWDataManager.h */,
+				25CC492916FF8B4800005F8A /* BMWDataManager.m */,
 				2581F45D16F0D3B700C5B391 /* Supporting Files */,
 			);
 			path = MapNotes2;
@@ -318,6 +340,10 @@
 				2581F49916F0D3F700C5B391 /* BMWCoreLocationandMapKit.m in Sources */,
 				2581F4A116F1227200C5B391 /* BMWAddNoteViewController.m in Sources */,
 				2581F4A416F124BF00C5B391 /* BMWNoteObject.m in Sources */,
+				25CC492A16FF8B4800005F8A /* BMWDataManager.m in Sources */,
+				251ADAF2170373AC00C641B2 /* Model.xcdatamodeld in Sources */,
+				251ADAFB1704E12300C641B2 /* BMWLocation.m in Sources */,
+				251ADAFE1704E12B00C641B2 /* BMWNote.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +546,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		251ADAF0170373AC00C641B2 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				251ADAF1170373AC00C641B2 /* Model.xcdatamodel */,
+			);
+			currentVersion = 251ADAF1170373AC00C641B2 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2581F44B16F0D3B700C5B391 /* Project object */;
 }

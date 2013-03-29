@@ -18,7 +18,6 @@
 @end
 
 
-
 @implementation BMWDetailViewController
 
 #pragma mark - Managing the detail item
@@ -55,12 +54,15 @@
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
     
-    // Getting object information from _detailItem, originially passed from AppDelegate
-    self.detailDescriptionLabel.text = [_detailItem.currentDate description];
+    // Getting object information from _detailItem (and it's attached BMWLocation, originially passed from AppDelegate
+    self.detailDescriptionLabel.text = [_detailItem.date description];
     self.detailTitle.text = _detailItem.titleString;
     self.detailContent.text = _detailItem.detailString;
     self.detailMap.mapType = MKMapTypeStandard;
-    [self addPinToMapAtCoordinate:_detailItem.coordinate];
+    
+    location.latitude = self.detailItem.location.lat;
+    location.longitude = self.detailItem.location.lon;
+    [self addPinToMapAtCoordinate:location];
     
     // Set background to pattern
     UIImage *patternImage = [UIImage imageNamed:@"fabric_of_squares_gray.png"];

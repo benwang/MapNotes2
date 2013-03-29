@@ -214,32 +214,6 @@
             <point key="canvasLocation" x="995" y="669"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="BMWAddNoteViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMWAddNoteViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancelModalViewController:"/>
-                <relationship kind="action" name="doneWithModalViewController:"/>
-                <relationship kind="outlet" name="contentField" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="BMWDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMWDetailViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="detailContent" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="detailDescriptionLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="detailMap" candidateClass="MKMapView"/>
-                <relationship kind="outlet" name="detailTitle" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="BMWMasterViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/BMWMasterViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

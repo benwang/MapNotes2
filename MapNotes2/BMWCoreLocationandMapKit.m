@@ -12,7 +12,7 @@
 
 #pragma mark Singleton Methods
 
-// access by declaring: MyManager *sharedManager = [MyManager sharedManager];
+// access by declaring: BMWCoreLocationandMapKit *sharedManager = [BMWCoreLocationandMapKit sharedManager];
 + (id)sharedManager {
     static BMWCoreLocationandMapKit *sharedManager = nil;
     static dispatch_once_t onceToken;

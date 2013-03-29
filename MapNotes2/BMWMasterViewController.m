@@ -9,10 +9,12 @@
 #import "BMWMasterViewController.h"
 #import "BMWDetailViewController.h"
 #import "BMWCoreLocationandMapKit.h"
+#import "BMWDataManager.h"
 
 @interface BMWMasterViewController () {
-    NSMutableArray *_objects;
+    NSArray *_objects;
     BMWAppDelegate *appDelegate;
+    NSManagedObjectContext *context;
 }
 @end
 
@@ -44,6 +46,19 @@
     //Nice UI
     UIImage *patternImage = [UIImage imageNamed:@"fabric_of_squares_gray.png"];
     self.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
+    
+    //Integrating CoreData--should this be instantiated every time? or should I check if one exists?
+//    appDelegate = [[UIApplication sharedApplication] delegate];
+//    context = [BMWDataManager dataManager;
+    
+//    if (!appDelegate) {appDelegate = (BMWAppDelegate *) [[UIApplication sharedApplication] delegate];}
+//    context = appDelegate.shared;
+    
+    appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    _objects = [[appDelegate dataManager] getAllNotes];
+    
+    [self.tableView reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -59,13 +74,14 @@
 
 - (void)insertNewObject:(id)sender
 {
+    //Update: the new appDelegate is automatically created in viewDidLoad
     if (!_objects) {
         appDelegate = (BMWAppDelegate *)[[UIApplication sharedApplication] delegate];
         _objects = appDelegate.objects;
     }
     
     [self performSegueWithIdentifier:@"AddNote" sender:self];
-    
+        
 //    [_objects insertObject:[NSDate date] atIndex:0];
 //    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
 //    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -87,7 +103,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    BMWNoteObject *objectAtCell = [appDelegate.objects objectAtIndex:indexPath.row];
+    BMWNote *objectAtCell = [_objects objectAtIndex:indexPath.row];
 //    cell.textLabel.text = [object description];
     //Why won't this work?
 //    if (_detailViewController) {
@@ -103,6 +119,7 @@
     return YES;
 }
 
+/*
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -112,7 +129,7 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
 }
-
+*/
 /*
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
@@ -132,7 +149,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        BMWNoteObject *object = _objects[indexPath.row];
+        BMWNote *object = _objects[indexPath.row];
         self.detailViewController.detailItem = object;
     }
 }
@@ -141,7 +158,7 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        BMWNoteObject *object = _objects[indexPath.row];
+        BMWNote *object = _objects[indexPath.row];
         [[segue destinationViewController] setDetailItem:object];
     }
 }

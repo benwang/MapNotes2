@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C3103" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="BMWLocation" representedClassName="BMWLocation" syncable="YES">
+        <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="lon" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="note" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BMWNote" inverseName="location" inverseEntity="BMWNote" syncable="YES"/>
+    </entity>
+    <entity name="BMWNote" representedClassName="BMWNote" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="detailString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="titleString" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="location" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="BMWLocation" inverseName="note" inverseEntity="BMWLocation" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="BMWLocation" positionX="1609" positionY="1098" width="128" height="88"/>
+        <element name="BMWNote" positionX="1404" positionY="945" width="128" height="103"/>
+    </elements>
+</model>

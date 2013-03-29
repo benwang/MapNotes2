@@ -12,8 +12,8 @@
 
 
 @interface BMWCoreLocationandMapKit : NSObject <MKMapViewDelegate, CLLocationManagerDelegate> {
-    MKMapView *mapView;
-    CLLocationManager *locationManager;
+//    MKMapView *mapView;
+//    CLLocationManager *locationManager;
 }
 
 @property (strong, nonatomic) MKMapView *mapView;

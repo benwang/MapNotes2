@@ -8,11 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import "BMWNoteObject.h"
+#import "BMWNote.h"
+#import "BMWLocation.h"
 
 @interface BMWDetailViewController : UIViewController <UISplitViewControllerDelegate>
+{
+    CLLocationCoordinate2D location;
+    CLLocationDegrees latitude;
+    CLLocationDegrees longitude;
+}
 
-@property (strong, nonatomic) BMWNoteObject *detailItem;
+@property (strong, nonatomic) BMWNote *detailItem;
 @property (weak, nonatomic) IBOutlet UILabel *detailTitle;
 @property (weak, nonatomic) IBOutlet UITextView *detailContent;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;

@@ -7,11 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BMWCoreLocationandMapKit.h"
+#import "BMWDataManager.h"
 
 @interface BMWAppDelegate : UIResponder <UIApplicationDelegate>
-
+{
+//    BMWCoreLocationandMapKit* sharedManager;
+}
+//@property (strong, nonatomic) BMWCoreLocationandMapKit *sharedManager;
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) NSMutableArray *objects;
-
+@property (strong, nonatomic) NSArray *objects;
+@property (strong, nonatomic) BMWDataManager *dataManager;
 
 @end

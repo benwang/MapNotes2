@@ -9,7 +9,4 @@
 #import "BMWNoteObject.h"
 
 @implementation BMWNoteObject
-
-
-
 @end

@@ -9,7 +9,11 @@
 #import "BMWAddNoteViewController.h"
 
 @interface BMWAddNoteViewController ()
-
+{
+    CLLocationCoordinate2D location;
+    
+}
+    @property (weak,nonatomic) NSDate *date;
 @end
 
 @implementation BMWAddNoteViewController
@@ -28,9 +32,15 @@
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = NO;
     
-	// Do any additional setup after loading the view.
+    self.titleField.delegate = self;
+    self.contentField.delegate = self;
+    
+	// Set up background image
     UIImage *patternImage = [UIImage imageNamed:@"fabric_of_squares_gray.png"];
     self.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
+    
+    //Prep for exiting keyboard out of title field when you return
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,16 +57,25 @@
 - (IBAction)doneWithModalViewController:(id)sender
 {
     //first save the data
-    appDelegate = (BMWAppDelegate *)[[UIApplication sharedApplication] delegate];
-    BMWNoteObject *object = [[BMWNoteObject alloc] init];
-    object.titleString = titleField.text;
-    object.detailString = contentField.text;
-    object.currentDate = [NSDate date];
+    BMWDataManager *dataManager = [(BMWAppDelegate*)[[UIApplication sharedApplication] delegate] dataManager];
+    //    BMWNote *object = [NSEntityDescription insertNewObjectForEntityForName:kBMWEntityName inManagedObjectContext:context];
+    //    object.titleString = titleField.text;
+    //    object.detailString = contentField.text;
+    //    object.date = [NSDate date];
+    self.date = [NSDate date];
     BMWCoreLocationandMapKit *sharedManager = [BMWCoreLocationandMapKit sharedManager];
-    object.coordinate = sharedManager.locationManager.location.coordinate;
+    location.latitude = sharedManager.locationManager.location.coordinate.latitude;
+    location.longitude = sharedManager.locationManager.location.coordinate.longitude;
     
-    //then set it as object in table array
-    [appDelegate.objects addObject:object];
+    //no need for objects array anymore
+//    [appDelegate.objects addObject:object];
+    
+    //then put it into core data
+    NSLog(@"%@", self.titleField.text);
+    NSLog(@"%@", self.contentField.text);
+    BOOL status = [dataManager addNoteContentWithDate:self.date Title:self.titleField.text Detail:self.contentField.text Coordinate:location];
+    NSLog(status ? @"Yes" : @"No");
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

@@ -14,6 +14,7 @@
 
 @interface BMWMasterViewController : UITableViewController < UITableViewDataSource, UITableViewDelegate>
 
+
 @property (strong, nonatomic) BMWDetailViewController *detailViewController;
 
 @end

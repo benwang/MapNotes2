@@ -7,14 +7,14 @@
 //
 
 #import "BMWAppDelegate.h"
-#import "BMWCoreLocationandMapKit.h"
 
 @implementation BMWAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.dataManager = [[BMWDataManager alloc] init];
     // Override point for customization after application launch.
-    _objects = [[NSMutableArray alloc] init];
+    _objects = [[NSArray alloc] init];
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
@@ -34,6 +34,8 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    //singleton class... should I be making one each time? or should I just import in the class and call it directly??
     
     BMWCoreLocationandMapKit *sharedManager = [BMWCoreLocationandMapKit sharedManager];
     [sharedManager stopUpdating];
