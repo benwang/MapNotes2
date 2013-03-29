@@ -14,8 +14,8 @@
 @interface BMWDetailViewController : UIViewController <UISplitViewControllerDelegate>
 {
     CLLocationCoordinate2D location;
-    CLLocationDegrees latitude;
-    CLLocationDegrees longitude;
+//    CLLocationDegrees latitude;
+//    CLLocationDegrees longitude;
 }
 
 @property (strong, nonatomic) BMWNote *detailItem;

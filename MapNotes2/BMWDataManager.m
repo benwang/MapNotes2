@@ -34,6 +34,7 @@
     
     location.lat = coordinate.latitude;
     location.lon = coordinate.longitude;
+    note.location = location;
     NSError *error;
     if (![context save:&error]) {
         NSLog(kBMWSaveError, [error localizedDescription]);
@@ -50,7 +51,7 @@
                                    entityForName:kBMWEntityName inManagedObjectContext:context];
     
     NSSortDescriptor *sort = [[NSSortDescriptor alloc]
-                              initWithKey:@"timestamp" ascending:YES];
+                              initWithKey:@"date" ascending:NO];
     [fetchRequest setSortDescriptors:@[sort]];
     [fetchRequest setEntity:entity];
     NSError *error;
@@ -134,7 +135,7 @@
     }
     
     //what is this???????????  "withExtension??"
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"MapNotes2" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Model" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
 }

@@ -75,7 +75,7 @@
     NSLog(@"%@", self.contentField.text);
     BOOL status = [dataManager addNoteContentWithDate:self.date Title:self.titleField.text Detail:self.contentField.text Coordinate:location];
     NSLog(status ? @"Yes" : @"No");
-    
+//    [appDelegate.objects addObject:]
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

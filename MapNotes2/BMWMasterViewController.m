@@ -12,7 +12,7 @@
 #import "BMWDataManager.h"
 
 @interface BMWMasterViewController () {
-    NSArray *_objects;
+    NSArray *objects;
     BMWAppDelegate *appDelegate;
     NSManagedObjectContext *context;
 }
@@ -53,16 +53,18 @@
     
 //    if (!appDelegate) {appDelegate = (BMWAppDelegate *) [[UIApplication sharedApplication] delegate];}
 //    context = appDelegate.shared;
-    
-    appDelegate = [[UIApplication sharedApplication] delegate];
-    
-    _objects = [[appDelegate dataManager] getAllNotes];
+//    appDelegate = [[UIApplication sharedApplication] delegate];
+    self.dataManager = [(BMWAppDelegate *)[[UIApplication sharedApplication] delegate] dataManager];
+    objects = [self.dataManager getAllNotes];
     
     [self.tableView reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
+//    NSLog(@"inviewDidAppear"); //might be redundant on opening...?
+    self.dataManager = [(BMWAppDelegate *)[[UIApplication sharedApplication] delegate] dataManager];
+    objects = [self.dataManager getAllNotes];
     [self.tableView reloadData];
 }
 
@@ -75,9 +77,9 @@
 - (void)insertNewObject:(id)sender
 {
     //Update: the new appDelegate is automatically created in viewDidLoad
-    if (!_objects) {
+    if (!objects) {
         appDelegate = (BMWAppDelegate *)[[UIApplication sharedApplication] delegate];
-        _objects = appDelegate.objects;
+        objects = appDelegate.objects;
     }
     
     [self performSegueWithIdentifier:@"AddNote" sender:self];
@@ -96,19 +98,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    return objects.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    BMWNote *objectAtCell = [_objects objectAtIndex:indexPath.row];
-//    cell.textLabel.text = [object description];
-    //Why won't this work?
-//    if (_detailViewController) {
-//        cell.textLabel.text = _detailViewController.detailTitle.text;
-//    }
+    BMWNote *objectAtCell = [objects objectAtIndex:indexPath.row];
     cell.textLabel.text = objectAtCell.titleString;
     return cell;
 }
@@ -149,7 +146,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        BMWNote *object = _objects[indexPath.row];
+        BMWNote *object = objects[indexPath.row];
         self.detailViewController.detailItem = object;
     }
 }
@@ -158,7 +155,7 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        BMWNote *object = _objects[indexPath.row];
+        BMWNote *object = objects[indexPath.row];
         [[segue destinationViewController] setDetailItem:object];
     }
 }

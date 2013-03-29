@@ -16,5 +16,6 @@
 
 
 @property (strong, nonatomic) BMWDetailViewController *detailViewController;
+@property (strong, nonatomic) BMWDataManager *dataManager;
 
 @end

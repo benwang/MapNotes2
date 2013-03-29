@@ -60,8 +60,8 @@
     self.detailContent.text = _detailItem.detailString;
     self.detailMap.mapType = MKMapTypeStandard;
     
-    location.latitude = self.detailItem.location.lat;
-    location.longitude = self.detailItem.location.lon;
+    location.latitude = _detailItem.location.lat;
+    location.longitude = _detailItem.location.lon;
     [self addPinToMapAtCoordinate:location];
     
     // Set background to pattern
