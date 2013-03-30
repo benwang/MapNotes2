@@ -39,21 +39,21 @@
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (BMWDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
-    //Start updating location
-    BMWCoreLocationandMapKit *sharedManager = [BMWCoreLocationandMapKit sharedManager];
-    [sharedManager resumeUpdating];
+    //Notify user of locationServicesEnabled
+    if ([CLLocationManager locationServicesEnabled] == NO) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enable Location Services" message:@"Change Location Services settings" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    } else {
+        //Start updating location
+        BMWCoreLocationandMapKit *sharedManager = [BMWCoreLocationandMapKit sharedManager];
+        [sharedManager resumeUpdating];
+    }
     
     //Nice UI
     UIImage *patternImage = [UIImage imageNamed:@"fabric_of_squares_gray.png"];
     self.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
     
     //Integrating CoreData--should this be instantiated every time? or should I check if one exists?
-//    appDelegate = [[UIApplication sharedApplication] delegate];
-//    context = [BMWDataManager dataManager;
-    
-//    if (!appDelegate) {appDelegate = (BMWAppDelegate *) [[UIApplication sharedApplication] delegate];}
-//    context = appDelegate.shared;
-//    appDelegate = [[UIApplication sharedApplication] delegate];
     self.dataManager = [(BMWAppDelegate *)[[UIApplication sharedApplication] delegate] dataManager];
     objects = [self.dataManager getAllNotes];
     

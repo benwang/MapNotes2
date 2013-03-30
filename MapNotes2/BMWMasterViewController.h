@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BMWAppDelegate.h"
-#import "BMWNoteObject.h"
+#import "BMWNote.h"
 
 @class BMWDetailViewController;
 
